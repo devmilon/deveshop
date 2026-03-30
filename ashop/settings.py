@@ -112,7 +112,7 @@ MESSAGE_TAGS = {messages.ERROR: 'danger'}
 
 # ----------------------
 
-
+export DATABASE_URL="postgresql://postgres:JLBzHDUMbCBDrxIrsUJcqwiRARbBCIiV@postgres.railway.internal:5432/railway"
 # ----------------------
 # Email (from .env)
 # ----------------------
