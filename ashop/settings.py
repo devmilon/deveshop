@@ -30,7 +30,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # ----------------------
 SECRET_KEY = config('SECRET_KEY', default='unsafe-secret-key-for-dev')
 DEBUG = config('DEBUG', default=True, cast=bool)
-ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='*').split(',')
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='*')
 
 
 TEMPLATE_DIR = os.path.join(BASE_DIR , 'template')
