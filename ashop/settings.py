@@ -22,17 +22,21 @@ TEMPLATE_DIR = os.path.join(BASE_DIR , 'template')
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-^yt-j_4xw^mibdlf#461ya$#euu#9#kc%l8*fve9!8fc^onh-0'
+
+from decouple import config
+SECRET_KEY = config('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['*']
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://eshop-rsrj.onrender.com"
+    "https://deveshop-production.up.railway.app/"
 ]
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
+DEBUG = config('DEBUG', default=False, cast=bool)
 
 USE_X_FORWARDED_HOST = True
 
@@ -96,7 +100,9 @@ DATABASES = {
     }
 }
 
-
+DATABASES = {
+    'default': dj_database_url.config(default=config('DATABASE_URL'))
+}
 
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -155,6 +161,8 @@ STATICFILES_DIR = {
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'public/static')
 MEDIA_URL = '/statc/'
 
+from decouple import config
+import dj_database_url
 
 STATIC_URL = '/static/'
 
