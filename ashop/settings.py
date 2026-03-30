@@ -111,12 +111,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MESSAGE_TAGS = {messages.ERROR: 'danger'}
 
 # ----------------------
-# SSLCommerz (from .env)
-# ----------------------
-STORE_ID = config('STORE_ID')
-STORE_PASS = config('STORE_PASS')
-CLIENT_ID = config('CLIENT_ID')
-SECRET_KEY_SSL = config('SECRET_KEY_SSL')
+
 
 # ----------------------
 # Email (from .env)
