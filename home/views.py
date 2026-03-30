@@ -791,7 +791,6 @@ def change_password(request):
 #end account part section in websit
 from django.conf import settings
 
-from sslcommerz_python.payment import SSLCSession
 from decimal import Decimal
 
 from django.views.decorators.csrf import csrf_exempt
