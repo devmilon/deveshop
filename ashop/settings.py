@@ -16,6 +16,22 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 import os
+from pathlib import Path
+from decouple import config
+import dj_database_url
+
+# ----------------------
+# Base directory
+# ----------------------
+BASE_DIR = Path(__file__).resolve().parent.parent
+
+# ----------------------
+# Security
+# ----------------------
+SECRET_KEY = config('SECRET_KEY', default='unsafe-secret-key-for-dev')
+DEBUG = config('DEBUG', default=True, cast=bool)
+ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='*').split(',')
+
 
 TEMPLATE_DIR = os.path.join(BASE_DIR , 'template')
 # Quick-start development settings - unsuitable for production
@@ -100,8 +116,18 @@ DATABASES = {
     }
 }
 
+# ----------------------
+# WSGI
+# ----------------------
+WSGI_APPLICATION = 'ashop.wsgi.application'
+
+# ----------------------
+# Database
+# ----------------------
 DATABASES = {
-    'default': dj_database_url.config(default=config('DATABASE_URL'))
+    'default': dj_database_url.config(
+        default=config('DATABASE_URL')
+    )
 }
 
 
